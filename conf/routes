@@ -1,0 +1,31 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+
+# test page
+GET 	/test						controllers.Application.testindex()
+
+# test add value
+POST	/cat/add					controllers.Categories.add()
+
+# test show
+GET     /cat/:id               controllers.Categories.show(id: Long)
+
+# test jobs
+POST    /job/add               controllers.Jobs.add(categoryID: Long)
+
+# users
+GET     /users                 controllers.Application.users()
+
+# test login
+GET     /login                 controllers.Auth.loginForm()
+#POST   /login/submit          controllers.Auth.login()
+#GET     /login                 controllers.Auth.login()
+POST    /lp                    controllers.Auth.login()
+#GET     /lg                    controllers.Auth.login()
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

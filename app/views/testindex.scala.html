@@ -1,0 +1,17 @@
+@(categories: List[Category], categoryForm: Form[Category])
+
+@import helper._
+
+@main("Jobs") {
+  
+  <ul>
+  @for(category <- categories) {
+    <li><a href="@routes.Categories.show(category.id)">@category.title</a></li>
+  }
+  </ul>
+  
+  @form(routes.Categories.add()) {
+	@inputText(categoryForm("title"))
+	<input type="submit" value="Create">
+  }
+}

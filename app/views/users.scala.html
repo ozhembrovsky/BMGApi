@@ -1,0 +1,10 @@
+@(users: List[profiles.User])
+
+@main("Users") {
+  
+  <ul>
+  @for(user <- users) {
+    <li><@user.login</li>
+  }
+  </ul>
+}

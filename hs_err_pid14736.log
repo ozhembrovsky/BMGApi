@@ -1,0 +1,273 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 715849728 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2671), pid=14736, tid=3065125696
+#
+# JRE version:  (8.0_20-b26) (build )
+# Java VM: Java HotSpot(TM) Client VM (25.20-b23 mixed mode, sharing linux-x86 )
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0xb690a400):  JavaThread "Unknown thread" [_thread_in_vm, id=14789, stack(0xb6ad1000,0xb6b22000)]
+
+Stack: [0xb6ad1000,0xb6b22000],  sp=0xb6b20ae0,  free space=318k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x5817a9]  VMError::report_and_die()+0x179
+V  [libjvm.so+0x1f5bb5]  report_vm_out_of_memory(char const*, int, unsigned int, VMErrorType, char const*)+0x55
+V  [libjvm.so+0x46fa06]  os::Linux::commit_memory_impl(char*, unsigned int, bool)+0xe6
+V  [libjvm.so+0x46fe28]  os::pd_commit_memory(char*, unsigned int, unsigned int, bool)+0x28
+V  [libjvm.so+0x4697fc]  os::commit_memory(char*, unsigned int, unsigned int, bool)+0x2c
+V  [libjvm.so+0x57d9dc]  VirtualSpace::expand_by(unsigned int, bool)+0x20c
+V  [libjvm.so+0x57e4dd]  VirtualSpace::initialize(ReservedSpace, unsigned int)+0xbd
+V  [libjvm.so+0x278362]  CardGeneration::CardGeneration(ReservedSpace, unsigned int, int, GenRemSet*)+0xa2
+V  [libjvm.so+0x53db51]  TenuredGeneration::TenuredGeneration(ReservedSpace, unsigned int, int, GenRemSet*)+0x41
+V  [libjvm.so+0x27930e]  GenerationSpec::init(ReservedSpace, int, GenRemSet*)+0x29e
+V  [libjvm.so+0x26ba80]  GenCollectedHeap::initialize()+0x170
+V  [libjvm.so+0x556057]  Universe::initialize_heap()+0xd7
+V  [libjvm.so+0x556233]  universe_init()+0x23
+V  [libjvm.so+0x2999d5]  init_globals()+0x55
+V  [libjvm.so+0x547508]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x258
+V  [libjvm.so+0x311f6c]  JNI_CreateJavaVM+0x5c
+C  [libjli.so+0x6d58]  JavaMain+0x98
+C  [libpthread.so.0+0x6f70]  start_thread+0xd0
+C  [libc.so.6+0xec70e]  clone+0x5e
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0xb690a400 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=14789, stack(0xb6ad1000,0xb6b22000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+08048000-08049000 r-xp 00000000 08:01 414122     /home/bmg/bin/jdk1.8.0_20/bin/java
+08049000-0804a000 rw-p 00000000 08:01 414122     /home/bmg/bin/jdk1.8.0_20/bin/java
+09358000-09379000 rw-p 00000000 00:00 0          [heap]
+6e3ff000-6e4aa000 rw-p 00000000 00:00 0 
+6e4aa000-6e5ff000 ---p 00000000 00:00 0 
+6e5ff000-83b50000 rw-p 00000000 00:00 0 
+ae599000-ae701000 rw-p 00000000 00:00 0 
+ae701000-ae900000 ---p 00000000 00:00 0 
+ae900000-ae928000 rwxp 00000000 00:00 0 
+ae928000-b6900000 ---p 00000000 00:00 0 
+b6900000-b6925000 rw-p 00000000 00:00 0 
+b6925000-b6a00000 ---p 00000000 00:00 0 
+b6a3a000-b6a53000 r-xp 00000000 08:01 414281     /home/bmg/bin/jdk1.8.0_20/jre/lib/i386/libzip.so
+b6a53000-b6a54000 rw-p 00018000 08:01 414281     /home/bmg/bin/jdk1.8.0_20/jre/lib/i386/libzip.so
+b6a54000-b6a5f000 r-xp 00000000 08:01 394305     /lib/i386-linux-gnu/libnss_files-2.19.so
+b6a5f000-b6a60000 r--p 0000a000 08:01 394305     /lib/i386-linux-gnu/libnss_files-2.19.so
+b6a60000-b6a61000 rw-p 0000b000 08:01 394305     /lib/i386-linux-gnu/libnss_files-2.19.so
+b6a61000-b6a6b000 r-xp 00000000 08:01 394315     /lib/i386-linux-gnu/libnss_nis-2.19.so
+b6a6b000-b6a6c000 r--p 00009000 08:01 394315     /lib/i386-linux-gnu/libnss_nis-2.19.so
+b6a6c000-b6a6d000 rw-p 0000a000 08:01 394315     /lib/i386-linux-gnu/libnss_nis-2.19.so
+b6a6d000-b6a82000 r-xp 00000000 08:01 394299     /lib/i386-linux-gnu/libnsl-2.19.so
+b6a82000-b6a83000 r--p 00015000 08:01 394299     /lib/i386-linux-gnu/libnsl-2.19.so
+b6a83000-b6a84000 rw-p 00016000 08:01 394299     /lib/i386-linux-gnu/libnsl-2.19.so
+b6a84000-b6a86000 rw-p 00000000 00:00 0 
+b6a86000-b6a8d000 r-xp 00000000 08:01 394301     /lib/i386-linux-gnu/libnss_compat-2.19.so
+b6a8d000-b6a8e000 r--p 00006000 08:01 394301     /lib/i386-linux-gnu/libnss_compat-2.19.so
+b6a8e000-b6a8f000 rw-p 00007000 08:01 394301     /lib/i386-linux-gnu/libnss_compat-2.19.so
+b6a9b000-b6aa3000 rw-s 00000000 08:01 153377     /tmp/hsperfdata_bmg/14736
+b6aa3000-b6ac7000 r-xp 00000000 08:01 414276     /home/bmg/bin/jdk1.8.0_20/jre/lib/i386/libjava.so
+b6ac7000-b6ac8000 rw-p 00023000 08:01 414276     /home/bmg/bin/jdk1.8.0_20/jre/lib/i386/libjava.so
+b6ac8000-b6acf000 r-xp 00000000 08:01 394358     /lib/i386-linux-gnu/librt-2.19.so
+b6acf000-b6ad0000 r--p 00006000 08:01 394358     /lib/i386-linux-gnu/librt-2.19.so
+b6ad0000-b6ad1000 rw-p 00007000 08:01 394358     /lib/i386-linux-gnu/librt-2.19.so
+b6ad1000-b6ad4000 ---p 00000000 00:00 0 
+b6ad4000-b6b22000 rw-p 00000000 00:00 0          [stack:14789]
+b6b22000-b6b66000 r-xp 00000000 08:01 394280     /lib/i386-linux-gnu/libm-2.19.so
+b6b66000-b6b67000 r--p 00043000 08:01 394280     /lib/i386-linux-gnu/libm-2.19.so
+b6b67000-b6b68000 rw-p 00044000 08:01 394280     /lib/i386-linux-gnu/libm-2.19.so
+b6b68000-b7178000 r-xp 00000000 08:01 414251     /home/bmg/bin/jdk1.8.0_20/jre/lib/i386/client/libjvm.so
+b7178000-b719d000 rw-p 0060f000 08:01 414251     /home/bmg/bin/jdk1.8.0_20/jre/lib/i386/client/libjvm.so
+b719d000-b75bf000 rw-p 00000000 00:00 0 
+b75bf000-b7768000 r-xp 00000000 08:01 394230     /lib/i386-linux-gnu/libc-2.19.so
+b7768000-b776a000 r--p 001a9000 08:01 394230     /lib/i386-linux-gnu/libc-2.19.so
+b776a000-b776b000 rw-p 001ab000 08:01 394230     /lib/i386-linux-gnu/libc-2.19.so
+b776b000-b776e000 rw-p 00000000 00:00 0 
+b776e000-b7771000 r-xp 00000000 08:01 394247     /lib/i386-linux-gnu/libdl-2.19.so
+b7771000-b7772000 r--p 00002000 08:01 394247     /lib/i386-linux-gnu/libdl-2.19.so
+b7772000-b7773000 rw-p 00003000 08:01 394247     /lib/i386-linux-gnu/libdl-2.19.so
+b7773000-b7774000 rw-p 00000000 00:00 0 
+b7774000-b7788000 r-xp 00000000 08:01 412913     /home/bmg/bin/jdk1.8.0_20/lib/i386/jli/libjli.so
+b7788000-b7789000 rw-p 00013000 08:01 412913     /home/bmg/bin/jdk1.8.0_20/lib/i386/jli/libjli.so
+b7789000-b77a1000 r-xp 00000000 08:01 394350     /lib/i386-linux-gnu/libpthread-2.19.so
+b77a1000-b77a2000 r--p 00017000 08:01 394350     /lib/i386-linux-gnu/libpthread-2.19.so
+b77a2000-b77a3000 rw-p 00018000 08:01 394350     /lib/i386-linux-gnu/libpthread-2.19.so
+b77a3000-b77a5000 rw-p 00000000 00:00 0 
+b77a8000-b77ac000 rw-p 00000000 00:00 0 
+b77ac000-b77ad000 r--p 00000000 00:00 0 
+b77ad000-b77b8000 r-xp 00000000 08:01 414228     /home/bmg/bin/jdk1.8.0_20/jre/lib/i386/libverify.so
+b77b8000-b77b9000 rw-p 0000b000 08:01 414228     /home/bmg/bin/jdk1.8.0_20/jre/lib/i386/libverify.so
+b77b9000-b77bb000 rw-p 00000000 00:00 0 
+b77bb000-b77bc000 r-xp 00000000 00:00 0          [vdso]
+b77bc000-b77dc000 r-xp 00000000 08:01 394206     /lib/i386-linux-gnu/ld-2.19.so
+b77dc000-b77dd000 r--p 0001f000 08:01 394206     /lib/i386-linux-gnu/ld-2.19.so
+b77dd000-b77de000 rw-p 00020000 08:01 394206     /lib/i386-linux-gnu/ld-2.19.so
+bfc74000-bfc75000 rwxp 00000000 00:00 0 
+bfca5000-bfcc8000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Xms1024m -Xmx1024m -XX:ReservedCodeCacheSize=128m -Duser.dir=/home/bmg/BMG/BMG-app/target/universal/stage -Dhttps.port=9443 -Dhttp.port=disabled -Dhttp.port=disabled 
+java_command: play.core.server.NettyServer
+java_class_path (initial): /home/bmg/BMG/BMG-app/target/universal/stage/lib/bmg-app.bmg-app-1.0-SNAPSHOT.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/org.scala-lang.scala-library-2.11.1.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/com.typesafe.play.twirl-api_2.11-1.0.2.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/org.apache.commons.commons-lang3-3.1.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/org.scala-lang.modules.scala-xml_2.11-1.0.1.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/com.typesafe.play.play_2.11-2.3.3.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/com.typesafe.play.build-link-2.3.3.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/com.typesafe.play.play-exceptions-2.3.3.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/org.javassist.javassist-3.18.2-GA.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/com.typesafe.play.play-iteratees_2.11-2.3.3.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/org.scala-stm.scala-stm_2.11-0.7.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/com.typesafe.config-1.2.1.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/com.typesafe.play.play-json_2.11-2.3.3.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/com.typesafe.play.play-functional_2.11-2.3.3.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/com.typesafe.play.play-datacommons_2.11-2.3.3.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/joda-time.joda-time-2.3.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/org.joda.joda-convert-1.6.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/com.fasterxml.jackson.core.jackson-annotations-2.3.2.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/com.fasterxml.jackson.core.jackson-core-2.3.2.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/com.fasterxml.jackson.core.jackson-databind-2.3.2.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/org.scala-lang.scala-reflect-2.11.1.jar:/home/bmg/BMG/BMG-app/target/universal/stage/lib/org.scala-lan
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/home/bmg/bin/jdk1.8.0_20/bin
+PATH=/home/bmg/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/bmg/bin/jdk1.8.0_20/bin:/home/bmg/bin/jre1.8.0_20/bin
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x582290], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0x582290], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x46c7a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x46c7a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x46c7a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x46c7a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x46df50], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGINT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGQUIT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=14.04
+DISTRIB_CODENAME=trusty
+DISTRIB_DESCRIPTION="Ubuntu 14.04.1 LTS"
+
+uname:Linux 3.13.0-32-generic #57-Ubuntu SMP Tue Jul 15 03:51:12 UTC 2014 i686
+libc:glibc 2.19 NPTL 2.19 
+rlimit: STACK 8192k, CORE 0k, NPROC 7862, NOFILE 4096, AS infinity
+load average:1.08 0.64 0.54
+
+/proc/meminfo:
+MemTotal:        1025496 kB
+MemFree:           90264 kB
+Buffers:            1116 kB
+Cached:            40276 kB
+SwapCached:        29420 kB
+Active:           411228 kB
+Inactive:         413064 kB
+Active(anon):     393304 kB
+Inactive(anon):   397776 kB
+Active(file):      17924 kB
+Inactive(file):    15288 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+HighTotal:        135048 kB
+HighFree:           3772 kB
+LowTotal:         890448 kB
+LowFree:           86492 kB
+SwapTotal:       1046524 kB
+SwapFree:         531696 kB
+Dirty:                 0 kB
+Writeback:            12 kB
+AnonPages:        758328 kB
+Mapped:            26188 kB
+Shmem:              8080 kB
+Slab:              27680 kB
+SReclaimable:      11252 kB
+SUnreclaim:        16428 kB
+KernelStack:        3752 kB
+PageTables:         9908 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     1559272 kB
+Committed_AS:    5117720 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       23764 kB
+VmallocChunk:      70192 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:    333824 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       32760 kB
+DirectMap2M:      880640 kB
+
+
+CPU:total 1 (1 cores per cpu, 1 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, erms, tsc, tscinvbit
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i5-4460  CPU @ 3.20GHz
+stepping	: 3
+microcode	: 0x12
+cpu MHz		: 3192.639
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 1
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts mmx fxsr sse sse2 ss nx pdpe1gb rdtscp constant_tsc arch_perfmon pebs bts xtopology tsc_reliable nonstop_tsc aperfmperf eagerfpu pni pclmulqdq ssse3 fma pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor ida arat epb xsaveopt pln pts dtherm fsgsbase smep
+bogomips	: 6385.27
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 1025496k(90264k free), swap 1046524k(531696k free)
+
+vm_info: Java HotSpot(TM) Client VM (25.20-b23) for linux-x86 JRE (1.8.0_20-b26), built on Jul 30 2014 13:33:58 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Thu Aug 21 08:32:01 2014
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
