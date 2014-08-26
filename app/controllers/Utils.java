@@ -4,7 +4,7 @@ import play.Logger;
 import java.util.Map;
 
 public class Utils {
-	public static void String[] parameters(Map<String, String[]> values, String... names) { //values = request().body().asFormUrlEncoded()
+	public static String[] parameters(Map<String, String[]> values, String... names) { //values = request().body().asFormUrlEncoded()
         if (values == null || names == null || names.length == 0)
             return null;
 
