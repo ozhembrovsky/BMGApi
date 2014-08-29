@@ -15,22 +15,8 @@ public class Application extends Controller {
         return ok(index.render("Your new application is ready."));
     }
 
-    /*public static Result auth() {
-        
-
-        return ok();
-    }
-
-    public static Result login() {
-        return ok(login.render());
-    }*/
-
-    public static Result testindex() {
-		return ok(testindex.render(Category.all(), Form.form(Category.class)));
-	}
-    
-    public static Result users() {
+    /*public static Result users() {
         return ok(users.render(User.all()));
-    }
+    }*/
 
 }
